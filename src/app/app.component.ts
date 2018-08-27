@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OdooRPCService } from 'angular5-odoo-jsonrpc';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs/Rx';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,8 +21,8 @@ export class AppComponent implements OnInit{
     self.odooRPC.login('demo.opensysknw.com', 'admin', 'admin').then(res => {
       console.log('login success');
     }).catch( err => {
-      console.error('akshay', err);
+      console.error('login failed', err);
     })
   }
-  constructor( private odooRPC: OdooRPCService){
+  constructor( private odooRPC: OdooRPCService,http:HttpClient){
   }}
